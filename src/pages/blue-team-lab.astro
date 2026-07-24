@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+const items = [
+  { t: 'Threat Hunting', d: 'Proactive detection over datasets and simulated environments.' },
+  { t: 'DFIR', d: 'Digital forensics and incident response.' },
+  { t: 'Active Directory', d: 'Attack and defense in AD environments.' },
+  { t: 'MITRE ATT&CK', d: 'Mapping techniques and tactics to concrete detections.' },
+];
+---
+<Base title="Blue Team Lab" description="Hack The Box writeups and Blue Team lessons learned.">
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <h1 class="text-3xl font-bold text-white">Blue Team Lab</h1>
+    <p class="mt-3 max-w-2xl text-slate-400">I use Hack The Box to build hands-on Blue Team experience: detection, threat hunting, and DFIR.</p>
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      {items.map((i) => (
+        <div class="rounded-lg border border-white/10 p-6">
+          <h2 class="font-semibold text-white">{i.t}</h2>
+          <p class="mt-2 text-sm text-slate-400">{i.d}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-10 text-sm text-slate-500">Writeups coming soon on the <a href="/blog" class="text-accent hover:underline">blog</a>.</p>
+  </section>
+</Base>

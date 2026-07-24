@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+const items = [
+  { t: 'Local RAG', d: 'Ollama + ChromaDB + LangChain over my own knowledge base (second brain in Obsidian).' },
+  { t: 'Agents', d: 'Multi-agent orchestration with LangGraph to automate triage and analysis tasks.' },
+  { t: 'MCP', d: 'Custom MCP servers to connect enterprise tools with models.' },
+  { t: 'Automation', d: 'n8n for workflows between AI, data, and notifications.' },
+];
+---
+<Base title="AI Lab" description="Applied AI experiments and projects: LLMs, RAG, agents, and MCP.">
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <h1 class="text-3xl font-bold text-white">AI Lab</h1>
+    <p class="mt-3 max-w-2xl text-slate-400">Where I test and document LLMs, RAG, agents, and AI automation before turning them into portfolio projects.</p>
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      {items.map((i) => (
+        <div class="rounded-lg border border-white/10 p-6">
+          <h2 class="font-semibold text-white">{i.t}</h2>
+          <p class="mt-2 text-sm text-slate-400">{i.d}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-10 text-sm text-slate-500">See full projects in the <a href="/portfolio" class="text-accent hover:underline">portfolio</a>.</p>
+  </section>
+</Base>

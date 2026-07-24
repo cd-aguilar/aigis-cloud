@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+const services = [
+  { t: 'AI Automation', d: 'Workflows and agents that cut down repetitive manual work.' },
+  { t: 'LLM & RAG Solutions', d: 'AI assistants built over an organization’s own knowledge.' },
+  { t: 'Detection Engineering', d: 'Detection rules, threat hunting, and incident response.' },
+  { t: 'Cloud Security', d: 'Architecture and hardening on AWS / GCP.' },
+];
+---
+<Base title="Services" description="AI, automation, and cybersecurity services (coming soon).">
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <h1 class="text-3xl font-bold text-white">Services</h1>
+    <p class="mt-3 max-w-2xl text-slate-400">
+      Available soon as an independent consultancy. Today, available for full-time remote roles —
+      see <a href="/resume" class="text-accent hover:underline">resume</a>.
+    </p>
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      {services.map((s) => (
+        <div class="rounded-lg border border-white/10 p-6">
+          <h2 class="font-semibold text-white">{s.t}</h2>
+          <p class="mt-2 text-sm text-slate-400">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,33 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/ai-lab', label: 'AI Lab' },
+  { href: '/blue-team-lab', label: 'Blue Team Lab' },
+  { href: '/certifications', label: 'Certifications' },
+  { href: '/services', label: 'Services' },
+  { href: '/resume', label: 'Resume' },
+];
+const social = {
+  github: 'https://github.com/cd-aguilar',
+  linkedin: 'https://www.linkedin.com/in/cesar-dario-aguilar-a0324b15/',
+};
+---
+<header class="sticky top-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="font-semibold tracking-tight text-white">
+      aigis<span class="text-accent">-cloud</span>
+    </a>
+    <ul class="hidden gap-6 text-sm text-slate-300 md:flex">
+      {links.map((l) => (
+        <li><a href={l.href} class="transition hover:text-accent">{l.label}</a></li>
+      ))}
+    </ul>
+    <div class="flex items-center gap-4">
+      <a href={social.github} target="_blank" rel="noopener" class="text-slate-300 hover:text-accent" aria-label="GitHub">GitHub</a>
+      <a href={social.linkedin} target="_blank" rel="noopener" class="text-slate-300 hover:text-accent" aria-label="LinkedIn">LinkedIn</a>
+      <a href="/contact" class="rounded-md border border-accent/40 px-3 py-1.5 text-sm text-accent transition hover:bg-accent/10">Contact</a>
+    </div>
+  </nav>
+</header>
