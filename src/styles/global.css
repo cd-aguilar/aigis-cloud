@@ -15,10 +15,10 @@ code {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-accent-gradient px-5 py-3 text-sm font-semibold text-ink transition hover:brightness-110;
+    @apply inline-flex items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-ink transition hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-accent/50;
+    @apply inline-flex items-center justify-center rounded-md border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-accent/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
   }
   .card {
     @apply rounded-lg border border-white/10 bg-white/[0.02] p-6 transition hover:border-accent/40 hover:bg-white/[0.04];
@@ -36,12 +36,6 @@ code {
   }
   .gradient-text {
     @apply bg-accent-gradient bg-clip-text text-transparent;
-  }
-  .bg-grid {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: 22px 22px;
-    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, #000, transparent);
-    mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, #000, transparent);
   }
 }
 
