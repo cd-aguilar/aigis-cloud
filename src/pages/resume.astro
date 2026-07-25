@@ -1,9 +1,6 @@
 ---
-import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import Base from '../layouts/Base.astro';
-
-const resumeExists = existsSync(fileURLToPath(new URL('../../public/resume.pdf', import.meta.url)));
+import { resumeExists } from '../generated/resume-status';
 ---
 <Base title="Resume" description="César Darío Aguilar's resume — AI Engineer / Blue Team.">
   <section class="mx-auto max-w-3xl px-6 py-16">
