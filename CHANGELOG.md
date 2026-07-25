@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+- Actualizado el link de LinkedIn a `cesar-dario-aguilar-ai` (Nav, Footer, contact, resume,
+  README) — reemplaza `cesar-dario-aguilar-a0324b15` en todo el sitio.
 - Agregada página de detalle por proyecto (`/portfolio/[slug]`) con mini case study
   (Problem / Architecture decisions / Result) para `agent-orchestrator-soc`,
   `rag-api-cloud` y `local-rag-second-brain` — home y `/portfolio` ahora enlazan ahí en

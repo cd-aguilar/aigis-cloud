@@ -55,5 +55,5 @@ Connected to Vercel. Every push to `main` deploys automatically. Domain `aigis-c
 
 ## Connect
 
-- LinkedIn: [in/cesar-dario-aguilar-a0324b15](https://www.linkedin.com/in/cesar-dario-aguilar-a0324b15)
+- LinkedIn: [in/cesar-dario-aguilar-ai](https://www.linkedin.com/in/cesar-dario-aguilar-ai)
 - Email: cdario.a@gmail.com
