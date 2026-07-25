@@ -8,3 +8,56 @@ html {
 body {
   @apply bg-ink text-slate-200;
 }
+.mono,
+code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-accent-gradient px-5 py-3 text-sm font-semibold text-ink transition hover:brightness-110;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-accent/50;
+  }
+  .card {
+    @apply rounded-lg border border-white/10 bg-white/[0.02] p-6 transition hover:border-accent/40 hover:bg-white/[0.04];
+  }
+  .card-featured {
+    @apply border-accent/40 bg-accent/[0.04];
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs text-accent;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .kicker {
+    @apply text-xs uppercase tracking-widest text-accent;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .gradient-text {
+    @apply bg-accent-gradient bg-clip-text text-transparent;
+  }
+  .bg-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, #000, transparent);
+    mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, #000, transparent);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

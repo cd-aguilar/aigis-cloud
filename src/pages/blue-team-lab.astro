@@ -9,11 +9,12 @@ const items = [
 ---
 <Base title="Blue Team Lab" description="Hack The Box writeups and Blue Team lessons learned.">
   <section class="mx-auto max-w-6xl px-6 py-16">
-    <h1 class="text-3xl font-bold text-white">Blue Team Lab</h1>
+    <p class="kicker">Lab</p>
+    <h1 class="mt-2 text-3xl font-bold text-white md:text-4xl">Blue Team <span class="gradient-text">Lab</span></h1>
     <p class="mt-3 max-w-2xl text-slate-400">I use Hack The Box to build hands-on Blue Team experience: detection, threat hunting, and DFIR.</p>
     <div class="mt-10 grid gap-6 md:grid-cols-2">
       {items.map((i) => (
-        <div class="rounded-lg border border-white/10 p-6">
+        <div class="card reveal">
           <h2 class="font-semibold text-white">{i.t}</h2>
           <p class="mt-2 text-sm text-slate-400">{i.d}</p>
         </div>

@@ -1,13 +1,57 @@
 ---
 const year = new Date().getFullYear();
+const columns = [
+  {
+    heading: 'Site',
+    links: [
+      { href: '/portfolio', label: 'Portfolio' },
+      { href: '/blog', label: 'Blog' },
+      { href: '/certifications', label: 'Certifications' },
+      { href: '/resume', label: 'Resume' },
+    ],
+  },
+  {
+    heading: 'Labs',
+    links: [
+      { href: '/ai-lab', label: 'AI Lab' },
+      { href: '/blue-team-lab', label: 'Blue Team Lab' },
+      { href: '/services', label: 'Services' },
+    ],
+  },
+];
 ---
-<footer class="border-t border-white/10 py-10 text-sm text-slate-400">
-  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-    <p>&copy; {year} César Darío Aguilar — aigis-cloud.com</p>
-    <div class="flex gap-5">
-      <a href="https://github.com/cd-aguilar" target="_blank" rel="noopener" class="hover:text-accent">GitHub</a>
-      <a href="https://www.linkedin.com/in/cesar-dario-aguilar-a0324b15/" target="_blank" rel="noopener" class="hover:text-accent">LinkedIn</a>
-      <a href="/contact" class="hover:text-accent">Contact</a>
+<footer class="border-t border-white/10 bg-white/[0.02]">
+  <div class="mx-auto max-w-6xl px-6 py-14">
+    <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div>
+        <a href="/" class="font-extrabold tracking-tight text-white">aigis<span class="gradient-text">-cloud</span></a>
+        <p class="mt-3 max-w-sm text-sm text-slate-400">
+          César Darío Aguilar — AI Engineer with a Cybersecurity Blue Team focus. Building in the
+          open, documenting everything.
+        </p>
+        <span class="badge mt-5">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+          Open to remote roles
+        </span>
+      </div>
+      {columns.map((col) => (
+        <div>
+          <p class="mono text-xs uppercase tracking-widest text-slate-500">{col.heading}</p>
+          <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
+            {col.links.map((l) => (
+              <li><a href={l.href} class="transition hover:text-accent">{l.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row">
+      <p>&copy; {year} César Darío Aguilar — aigis-cloud.com</p>
+      <div class="flex gap-5">
+        <a href="https://github.com/cd-aguilar" target="_blank" rel="noopener" class="hover:text-accent">GitHub</a>
+        <a href="https://www.linkedin.com/in/cesar-dario-aguilar-a0324b15/" target="_blank" rel="noopener" class="hover:text-accent">LinkedIn</a>
+        <a href="/contact" class="hover:text-accent">Contact</a>
+      </div>
     </div>
   </div>
 </footer>
