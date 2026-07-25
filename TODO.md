@@ -1,6 +1,10 @@
 # TODO
 
 ## Pendiente
+- [ ] Migración mayor: Astro 4 → 7, para poder actualizar `@astrojs/cloudflare` de 11.2.0 a
+      14.1.4 y resolver las 11 vulnerabilidades (7 high) que trae el adapter de Cloudflare
+      actual (detalle completo en SECURITY.md). Es un salto de tres versiones mayores —
+      planear aparte, no es un `npm audit fix` simple.
 - [ ] Case study de `blue-team-detection-lab` — el repo en GitHub está vacío (sin README,
       sin código), así que no se pudo escribir un case study grounded como el de los otros
       tres. Falta cargar contenido real al repo, o pasarme el material como con

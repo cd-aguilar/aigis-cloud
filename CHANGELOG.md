@@ -1,6 +1,12 @@
 # Changelog
 
 ## [Unreleased]
+- Dominio raíz `aigis-cloud.com` migrado a Cloudflare Workers (`www` sigue en Vercel sin
+  cambios) — decisión tomada al configurar seguridad del dominio (SSL Full Strict, HSTS,
+  WAF, Bot Fight Mode). Mergeado el PR auto-generado por Cloudflare con el adapter
+  `@astrojs/cloudflare` + `wrangler.jsonc`. Ver `docs/ADR/0002-dual-hosting-cloudflare-vercel.md`.
+  Introduce 11 vulnerabilidades npm conocidas (7 high) heredadas del adapter, aceptadas y
+  documentadas en SECURITY.md — el fix real requiere migrar Astro 4→7 (ver TODO.md).
 - Actualizado el link de LinkedIn a `cesar-dario-aguilar-ai` (Nav, Footer, contact, resume,
   README) — reemplaza `cesar-dario-aguilar-a0324b15` en todo el sitio.
 - Agregada página de detalle por proyecto (`/portfolio/[slug]`) con mini case study
