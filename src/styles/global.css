@@ -15,10 +15,10 @@ code {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-accent-gradient px-5 py-3 text-sm font-semibold text-ink transition hover:brightness-110;
+    @apply inline-flex items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-ink transition hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-accent/50;
+    @apply inline-flex items-center justify-center rounded-md border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-accent/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
   }
   .card {
     @apply rounded-lg border border-white/10 bg-white/[0.02] p-6 transition hover:border-accent/40 hover:bg-white/[0.04];
@@ -37,11 +37,44 @@ code {
   .gradient-text {
     @apply bg-accent-gradient bg-clip-text text-transparent;
   }
-  .bg-grid {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: 22px 22px;
-    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, #000, transparent);
-    mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, #000, transparent);
+  .markdown-body {
+    @apply max-w-[70ch] text-slate-300;
+  }
+  .markdown-body p {
+    @apply mb-5 leading-relaxed;
+  }
+  .markdown-body strong {
+    @apply font-semibold text-white;
+  }
+  .markdown-body em {
+    @apply italic;
+  }
+  .markdown-body a {
+    @apply text-accent underline decoration-accent/30 underline-offset-2 hover:decoration-accent;
+  }
+  .markdown-body ul {
+    @apply mb-5 list-disc space-y-2.5 pl-5 marker:text-accent;
+  }
+  .markdown-body ol {
+    @apply mb-5 list-decimal space-y-2.5 pl-5 marker:text-accent;
+  }
+  .markdown-body h2 {
+    @apply mb-4 mt-10 text-xl font-bold text-white first:mt-0;
+  }
+  .markdown-body h3 {
+    @apply mb-3 mt-8 text-lg font-semibold text-white first:mt-0;
+  }
+  .markdown-body code {
+    @apply rounded bg-white/[0.06] px-1.5 py-0.5 text-[0.85em] text-slate-200;
+  }
+  .markdown-body pre {
+    @apply mb-5 overflow-x-auto rounded-lg border border-white/10 bg-white/[0.02] p-4;
+  }
+  .markdown-body pre code {
+    @apply bg-transparent p-0;
+  }
+  .markdown-body blockquote {
+    @apply mb-5 border-l-2 border-white/15 pl-4 text-slate-400;
   }
 }
 

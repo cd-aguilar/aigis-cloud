@@ -6,3 +6,6 @@ dist/
 !.env.example
 .DS_Store
 *.log
+
+# Claude Code local machine settings (personal hook/permission overrides, not shared)
+.claude/settings.local.json
