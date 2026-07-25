@@ -12,3 +12,8 @@ src/generated/
 
 # Claude Code local machine settings (personal hook/permission overrides, not shared)
 .claude/settings.local.json
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
