@@ -6,15 +6,16 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 ---
 <Base title="Portfolio" description="AI, Cloud, and Blue Team cybersecurity projects.">
   <section class="mx-auto max-w-6xl px-6 py-16">
-    <h1 class="text-3xl font-bold text-white">Portfolio</h1>
-    <p class="mt-3 max-w-2xl text-slate-400">Public projects demonstrating my work in AI, Cloud, and Blue Team.</p>
+    <p class="kicker">Portfolio</p>
+    <h1 class="mt-2 text-3xl font-bold text-white md:text-4xl">Public <span class="gradient-text">projects</span></h1>
+    <p class="mt-3 max-w-2xl text-slate-400">Projects demonstrating my work in AI, Cloud, and Blue Team.</p>
 
     <div class="mt-10 grid gap-6 md:grid-cols-2">
       {projects.map((p) => (
-        <article class="rounded-lg border border-white/10 p-6">
+        <article class="card reveal">
           <div class="flex items-start justify-between gap-4">
             <h2 class="text-lg font-semibold text-white">{p.data.title}</h2>
-            <span class="mono shrink-0 rounded border border-accent/30 px-2 py-1 text-xs text-accent">{p.data.role}</span>
+            <span class="badge shrink-0">{p.data.role}</span>
           </div>
           <p class="mt-3 text-sm text-slate-400">{p.data.summary}</p>
           <p class="mono mt-4 text-xs text-slate-500">{p.data.stack.join(' · ')}</p>

@@ -40,8 +40,9 @@ content collections (`src/content/config.ts`), sin backend ni base de datos. Ver
 ## Roadmap
 - [x] Elegir stack (Astro + Tailwind, estático) y estructura de secciones
 - [x] Scaffold funcional con build verificado (`npm run build`)
-- [ ] Contenido real: CV en PDF (`public/cv.pdf`), bio definitiva, foto/logo
-- [ ] Conectar dominio `aigis-cloud.com` en Vercel y desplegar
+- [x] Dominio `aigis-cloud.com` conectado en Vercel (DNS en Hostinger, SSL activo)
+- [x] Sitio traducido a inglés (rutas, nav, contenido, README)
+- [ ] Contenido real: CV en PDF (`public/resume.pdf`), bio definitiva, foto/logo
 - [ ] Autorizar conector de GitHub (OAuth pendiente) para automatizar sync de proyectos
 - [ ] Formulario de contacto real (Formspree o función serverless en Vercel)
 - [ ] Integrar con GitHub/LinkedIn para reforzar la marca profesional (ver TODO.md)

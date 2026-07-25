@@ -16,18 +16,51 @@ const social = {
 ---
 <header class="sticky top-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur">
   <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-    <a href="/" class="font-semibold tracking-tight text-white">
-      aigis<span class="text-accent">-cloud</span>
+    <a href="/" class="font-extrabold tracking-tight text-white">
+      aigis<span class="gradient-text">-cloud</span>
     </a>
     <ul class="hidden gap-6 text-sm text-slate-300 md:flex">
       {links.map((l) => (
         <li><a href={l.href} class="transition hover:text-accent">{l.label}</a></li>
       ))}
     </ul>
-    <div class="flex items-center gap-4">
+    <div class="hidden items-center gap-4 md:flex">
       <a href={social.github} target="_blank" rel="noopener" class="text-slate-300 hover:text-accent" aria-label="GitHub">GitHub</a>
       <a href={social.linkedin} target="_blank" rel="noopener" class="text-slate-300 hover:text-accent" aria-label="LinkedIn">LinkedIn</a>
-      <a href="/contact" class="rounded-md border border-accent/40 px-3 py-1.5 text-sm text-accent transition hover:bg-accent/10">Contact</a>
+      <a href="/contact" class="btn-primary px-4 py-2 text-xs">Contact</a>
     </div>
+    <button id="nav-toggle" type="button" class="text-slate-300 md:hidden" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-mobile">
+      <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
   </nav>
+  <div id="nav-mobile" class="hidden border-t border-white/10 px-6 pb-6 pt-2 md:hidden">
+    <ul class="flex flex-col gap-1 text-sm text-slate-300">
+      {links.map((l) => (
+        <li><a href={l.href} class="block rounded-md px-2 py-2 transition hover:bg-white/5 hover:text-accent">{l.label}</a></li>
+      ))}
+    </ul>
+    <div class="mt-4 flex items-center gap-5 border-t border-white/10 pt-4">
+      <a href={social.github} target="_blank" rel="noopener" class="text-slate-300 hover:text-accent" aria-label="GitHub">GitHub</a>
+      <a href={social.linkedin} target="_blank" rel="noopener" class="text-slate-300 hover:text-accent" aria-label="LinkedIn">LinkedIn</a>
+      <a href="/contact" class="ml-auto btn-primary px-4 py-2 text-xs">Contact</a>
+    </div>
+  </div>
 </header>
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-mobile');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

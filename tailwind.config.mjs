@@ -6,6 +6,10 @@ export default {
       colors: {
         ink: '#0b1120',
         accent: '#22d3ee',
+        accent2: '#a78bfa',
+      },
+      backgroundImage: {
+        'accent-gradient': 'linear-gradient(90deg, #22d3ee, #a78bfa)',
       },
     },
   },

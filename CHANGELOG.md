@@ -1,7 +1,16 @@
 # Changelog
 
 ## [Unreleased]
-- Pendiente: CV real, contenido definitivo, dominio conectado en Vercel.
+- Pendiente: CV real (`public/resume.pdf`), contenido/copy definitivo, foto/logo.
+- Se removieron `context/` y `plantilla-proyecto-claude/` del repo: eran scaffolding
+  genérico sin llenar, redundante con PROJECT.md/CLAUDE.md/TODO.md y ausente en el resto
+  de los repos de portfolio. La plantilla reutilizable de proyecto ya vive en el vault
+  (`segundo-cerebro/_templates/proyecto/`), no debía commitearse en un repo público.
+
+## [0.2.1] - 2026-07-24
+### Fixed
+- Corregida inconsistencia: PROJECT.md marcaba "conectar dominio" como pendiente cuando
+  ya estaba hecho (ver TODO.md/README.md).
 
 ## [0.2.0] - 2026-07-24
 ### Added

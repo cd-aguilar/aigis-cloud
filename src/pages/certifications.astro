@@ -8,16 +8,20 @@ const certs = [
 ---
 <Base title="Certifications" description="Certification roadmap in AI, Cloud, and cybersecurity.">
   <section class="mx-auto max-w-4xl px-6 py-16">
-    <h1 class="text-3xl font-bold text-white">Certifications</h1>
+    <p class="kicker">Roadmap</p>
+    <h1 class="mt-2 text-3xl font-bold text-white md:text-4xl">Certifications</h1>
     <p class="mt-3 text-slate-400">Roadmap prioritized by return on investment and market demand.</p>
-    <div class="mt-10 divide-y divide-white/10 rounded-lg border border-white/10">
+    <div class="reveal mt-10 divide-y divide-white/10 rounded-lg border border-white/10 bg-white/[0.02]">
       {certs.map((c) => (
         <div class="flex items-center justify-between px-6 py-4">
           <div>
             <p class="font-medium text-white">{c.name}</p>
             <p class="mono text-xs text-slate-500">{c.area}</p>
           </div>
-          <span class="mono rounded border border-accent/30 px-2 py-1 text-xs text-accent">{c.status}</span>
+          <span class:list={['badge', { '!border-white/15 !bg-white/5 !text-slate-400': c.status !== 'In progress' }]}>
+            {c.status === 'In progress' && <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>}
+            {c.status}
+          </span>
         </div>
       ))}
     </div>
