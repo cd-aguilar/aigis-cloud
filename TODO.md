@@ -1,6 +1,12 @@
 # TODO
 
 ## Pendiente
+- [ ] Case study de `blue-team-detection-lab` — el repo en GitHub está vacío (sin README,
+      sin código), así que no se pudo escribir un case study grounded como el de los otros
+      tres. Falta cargar contenido real al repo, o pasarme el material como con
+      agent-orchestrator-soc.
+- [ ] Unificar `cdario.a@gmail.com` → `cda.admin@aigis-cloud.com` en README.md/SECURITY.md
+      si corresponde (quedó pendiente de confirmar)
 - [ ] Reemplazar bio/copy genérico de las páginas con contenido definitivo
 - [ ] Autorizar conector de GitHub (OAuth) para sincronizar proyectos automáticamente
 - [ ] Formulario de contacto real (Formspree o función serverless en Vercel) — debe
@@ -15,6 +21,13 @@
 - [ ]
 
 ## Finalizado
+- [x] Mini case study por proyecto (Problem / Architecture decisions / Result) para
+      agent-orchestrator-soc, rag-api-cloud y local-rag-second-brain, con página de
+      detalle nueva (`/portfolio/[slug]`) enlazada desde home y portfolio. Contenido de
+      rag-api-cloud y local-rag-second-brain sacado de sus READMEs reales en GitHub, no
+      inventado. De paso se arregló `.markdown-body`: la página de blog usaba clases
+      `prose`/`prose-invert` de un plugin de Tailwind que nunca estuvo instalado, así que
+      el contenido se renderizaba sin estilo.
 - [x] CV real subido a `public/resume.pdf` (v2, 2026-07-24) — la página `/resume` ya
       detecta el archivo en build y muestra el botón de descarga real
 - [x] Email de contacto unificado a `cda.admin@aigis-cloud.com` en `/contact` (coincide

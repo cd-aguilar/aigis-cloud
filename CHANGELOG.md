@@ -1,6 +1,13 @@
 # Changelog
 
 ## [Unreleased]
+- Agregada página de detalle por proyecto (`/portfolio/[slug]`) con mini case study
+  (Problem / Architecture decisions / Result) para `agent-orchestrator-soc`,
+  `rag-api-cloud` y `local-rag-second-brain` — home y `/portfolio` ahora enlazan ahí en
+  vez de ir directo al repo externo. `blue-team-detection-lab` quedó pendiente: el repo
+  está vacío en GitHub. De paso se corrigió `.markdown-body` en `global.css`, reemplazando
+  clases `prose`/`prose-invert` de un plugin de Tailwind que nunca se instaló (el body del
+  blog se renderizaba sin estilo).
 - Subido CV real a `public/resume.pdf` (v2) y unificado el email de contacto en
   `/contact` a `cda.admin@aigis-cloud.com` (coincide con el CV).
 - Agregado `DESIGN.md` (impeccable document) y pase de estilo "Ops Console" en las 9
