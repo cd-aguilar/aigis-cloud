@@ -1,6 +1,17 @@
 {
   "permissions": {
-    "allow": ["Read", "Edit", "Bash(git *)", "Bash(make *)", "Bash(docker *)"],
-    "deny": ["Read(.env)", "Bash(rm -rf *)", "Bash(git push --force*)"]
+    "allow": [
+      "Read",
+      "Edit",
+      "Bash(git *)",
+      "Bash(make *)",
+      "Bash(docker *)",
+      "Bash(npx add-mcp *)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)"
+    ]
   }
 }

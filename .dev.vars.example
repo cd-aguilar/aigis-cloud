@@ -1,0 +1,5 @@
+# Copiar a .dev.vars (gitignored) para probar /api/contact con `npm run preview` (wrangler dev)
+# contra InsForge real. Ver docs/ADR/0003-insforge-contact-form.md.
+
+INSFORGE_BASE_URL=https://i8w4sqcw.us-east.insforge.app
+INSFORGE_SERVICE_KEY=

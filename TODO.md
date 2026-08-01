@@ -13,10 +13,10 @@
       si corresponde (quedó pendiente de confirmar)
 - [ ] Reemplazar bio/copy genérico de las páginas con contenido definitivo
 - [ ] Autorizar conector de GitHub (OAuth) para sincronizar proyectos automáticamente
-- [ ] Formulario de contacto real (Formspree o función serverless en Vercel) — debe
-      entregar todos los campos enviados a César, como digest diario y no solo un envío
-      puntual por submission; implica algo de storage/batching, que es una excepción real
-      al "sin backend" y debe resolverse a propósito (ver PRODUCT.md)
+- [ ] Digest diario de `contact_submissions` (fase 2 de ADR-0003) — falta: elegir servicio
+      de envío de email (candidato: Resend), y un Cloudflare Cron Trigger o función
+      programada que junte los envíos con `digested_at is null`, mande el digest, y marque
+      `digested_at`. Sin esto, los envíos quedan guardados pero nadie los lee todavía.
 - [ ] Agregar foto/logo propio (reemplazar favicon genérico en `public/`)
 - [ ] Primeros writeups de HTB en `src/content/blog`
 - [ ] Revisar copy de `/services` cuando arranque la consultora
@@ -25,6 +25,13 @@
 - [ ]
 
 ## Finalizado
+- [x] Formulario de contacto real (`/contact` + `src/pages/api/contact.ts`), guarda los
+      envíos en InsForge (Postgres). Única página SSR del sitio (ver ADR-0003). **Live en
+      producción desde 2026-08-01**: tabla creada, `INSFORGE_SERVICE_KEY` cargado en
+      Cloudflare (`wrangler secret put`) y en `.dev.vars` local, probado end-to-end. De paso
+      se corrigió un bug (ruta real de InsForge es `/api/database/records/{table}`, no
+      `/api/db/{table}`) y se limpió un secret mal nombrado en Cloudflare. Pendiente: digest
+      diario (fase 2, ver arriba).
 - [x] Mini case study por proyecto (Problem / Architecture decisions / Result) para
       agent-orchestrator-soc, rag-api-cloud y local-rag-second-brain, con página de
       detalle nueva (`/portfolio/[slug]`) enlazada desde home y portfolio. Contenido de

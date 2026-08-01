@@ -13,5 +13,12 @@
   "assets": {
     "binding": "ASSETS",
     "directory": "dist"
+  },
+  // INSFORGE_BASE_URL no es secreto (es solo el hostname del proyecto), por eso vive acá
+  // y se commitea. INSFORGE_SERVICE_KEY es secreto: se agrega con
+  // `wrangler secret put INSFORGE_SERVICE_KEY` o desde el dashboard de Cloudflare
+  // (Workers & Pages > aigis-cloud > Settings > Variables), NUNCA en este archivo.
+  "vars": {
+    "INSFORGE_BASE_URL": "https://i8w4sqcw.us-east.insforge.app"
   }
 }

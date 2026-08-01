@@ -15,11 +15,12 @@ Home, Portafolio (proyectos desde `src/content/proyectos`), Blog técnico (`src/
 Laboratorio de IA, Laboratorio HTB, Servicios (futura consultora), Certificaciones, CV, Contacto.
 
 ## Arquitectura
-Sitio Astro (`output: "hybrid"`, 100% prerenderizado — ninguna página usa
-`prerender = false`, así que en la práctica sigue siendo estático) con contenido de
-proyectos y posts en Markdown mediante content collections (`src/content/config.ts`), sin
-backend ni base de datos propia. Desde 2026-07-25 se construye y despliega en **dos
-hosts** desde el mismo repo/rama `main` (ver ADR-0002):
+Sitio Astro (`output: "hybrid"`) con contenido de proyectos y posts en Markdown mediante
+content collections (`src/content/config.ts`). Desde 2026-07-28 tiene **una única página no
+prerenderizada**: `src/pages/api/contact.ts` (`prerender = false`), el endpoint del
+formulario de contacto — ver ADR-0003. Todo el resto del sitio sigue siendo 100% estático.
+Desde 2026-07-25 se construye y despliega en **dos hosts** desde el mismo repo/rama `main`
+(ver ADR-0002):
 - **`aigis-cloud.com`** (raíz) → Cloudflare Workers, vía adapter `@astrojs/cloudflare` +
   `wrangler.jsonc`. Deploy automático por Git integration en cada push.
 - **`www.aigis-cloud.com`** → Vercel, sin cambios respecto a la config original.
@@ -40,10 +41,19 @@ Ver `docs/architecture/` para diagramas si se agregan a futuro.
   `local-rag-second-brain`) y se enlazan desde el portafolio en vez de embeberse.
 - Se removió la integración `@astrojs/sitemap` (rompía el build en esta versión); reintentar
   más adelante si aporta valor SEO real.
+- **Formulario de contacto real vía InsForge** (Postgres + REST API), como única excepción
+  SSR del sitio — ver `docs/ADR/0003-insforge-contact-form.md`. Elegido sobre Formspree
+  porque `PRODUCT.md` exige digest diario (no un email por submission), y Formspree no
+  soporta eso nativamente.
+- **Secrets del proyecto gestionados en Infisical** (fuente de verdad). Cloudflare Workers
+  no lee Infisical directamente: cada secret (ej. `INSFORGE_SERVICE_KEY`) se replica a mano
+  como Cloudflare Secret (Workers & Pages → Settings → Variables and secrets) y en
+  `.dev.vars` local (gitignoreado) para desarrollo — ver TODO.md para el paso a paso vigente.
 - Ver `docs/ADR/` para decisiones mayores futuras.
 
 ## Restricciones
-- Técnicas: sitio estático, sin backend. Node 20+.
+- Técnicas: sitio estático, sin backend — **excepto** el endpoint del formulario de contacto
+  (`src/pages/api/contact.ts`, ver ADR-0003), única función SSR del sitio. Node 20+.
 - De tiempo: proyecto secundario, no bloquea objetivos de certificación/empleo.
 - De presupuesto: free/open source — Astro, Tailwind y Vercel free tier; dominio ya comprado.
 
@@ -54,7 +64,8 @@ Ver `docs/architecture/` para diagramas si se agregan a futuro.
 - [x] Sitio traducido a inglés (rutas, nav, contenido, README)
 - [ ] Contenido real: CV en PDF (`public/resume.pdf`), bio definitiva, foto/logo
 - [ ] Autorizar conector de GitHub (OAuth pendiente) para automatizar sync de proyectos
-- [ ] Formulario de contacto real (Formspree o función serverless en Vercel)
+- [x] Formulario de contacto real — implementado vía InsForge (ver ADR-0003); falta el paso
+      manual de crear la tabla y cargar los secrets (ver TODO.md), y el digest diario (fase 2)
 - [ ] Integrar con GitHub/LinkedIn para reforzar la marca profesional (ver TODO.md)
 
 ## Pendientes
@@ -63,7 +74,7 @@ Ver TODO.md
 ## Tecnologías
 Astro 4, Tailwind CSS 3, TypeScript (strict), Markdown content collections. Hosting:
 Cloudflare Workers (`@astrojs/cloudflare`, `wrangler`) para el dominio raíz, Vercel para
-`www`.
+`www`. Backend del formulario de contacto: InsForge (Postgres + REST API), ver ADR-0003.
 
 ## Reglas del proyecto
 - Estilo de código: componentes `.astro`, Tailwind utility classes, TypeScript strict.

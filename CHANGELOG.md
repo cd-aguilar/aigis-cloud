@@ -1,6 +1,21 @@
 # Changelog
 
 ## [Unreleased]
+- **Formulario de contacto en producción.** `/contact` + `src/pages/api/contact.ts`, única
+  página SSR del sitio — guarda los envíos en InsForge (Postgres), ver
+  `docs/ADR/0003-insforge-contact-form.md`. `INSFORGE_SERVICE_KEY` cargado en Cloudflare
+  (`wrangler secret put`) y en `.dev.vars` local; probado end-to-end (automatizado y en
+  browser). Bug encontrado y corregido durante la prueba: el código apuntaba a
+  `{INSFORGE_BASE_URL}/api/db/{table}` (404, ruta inexistente); la ruta real de la API de
+  InsForge es `/api/database/records/{table}`. También se limpió un secret mal nombrado en
+  Cloudflare (`INSFORGE_SERVICE_KE`, sin la Y final) de un intento manual previo. Pendiente:
+  digest diario (fase 2 del ADR-0003).
+- Secrets del proyecto migrados a **Infisical** como fuente de verdad (antes solo vivían en
+  `.dev.vars`/Cloudflare directo). Cloudflare Workers no lee Infisical, así que cada secret
+  se sigue replicando a mano en Cloudflare (secret) y `.dev.vars` local — ver TODO.md. CLI
+  instalado, logueado, y repo linkeado (`.infisical.json`). **Incidente:** un comando sin
+  filtrar (`infisical secrets --env=dev`) volcó las 10 secrets del workspace en texto plano a
+  una terminal/sesión — en rotación por Dario.
 - Dominio raíz `aigis-cloud.com` migrado a Cloudflare Workers (`www` sigue en Vercel sin
   cambios) — decisión tomada al configurar seguridad del dominio (SSL Full Strict, HSTS,
   WAF, Bot Fight Mode). Mergeado el PR auto-generado por Cloudflare con el adapter
