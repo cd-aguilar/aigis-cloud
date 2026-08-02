@@ -46,8 +46,11 @@ Ambos se construyen desde el mismo repo/rama `main`, por eso muestran el mismo c
 
 ## Formulario de contacto (InsForge) — estado 1 ago 2026
 
-- **Live en producción.** Código completo: `/contact` + `src/pages/api/contact.ts` (única
-  ruta SSR del sitio, ver `docs/ADR/0003-insforge-contact-form.md`). Tabla
+- **Live en producción, deployado y confirmado.** Commit `4c41a0a` pusheado a `main`, build
+  `success` en Cloudflare Workers Builds, y `POST https://aigis-cloud.com/api/contact`
+  responde con la validación real del código nuevo (confirma que el fix de ruta ya está
+  desplegado, no el código viejo). Código completo: `/contact` + `src/pages/api/contact.ts`
+  (única ruta SSR del sitio, ver `docs/ADR/0003-insforge-contact-form.md`). Tabla
   `contact_submissions` creada en InsForge, `INSFORGE_SERVICE_KEY` cargado como Secret en el
   Worker de Cloudflare (`wrangler secret put`, cuenta `cda.admin@aigis-cloud.com`) y en
   `.dev.vars` local.
