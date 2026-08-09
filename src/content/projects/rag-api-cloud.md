@@ -5,7 +5,7 @@ stack: ["FastAPI", "AWS Bedrock", "Terraform", "Docker", "GitHub Actions"]
 role: "AI Engineer / Cloud"
 repo: "https://github.com/cd-aguilar/rag-api-cloud"
 featured: true
-order: 1
+order: 2
 ---
 
 **Problem.** `local-rag-second-brain` proves the RAG pattern works. The question this project answers is what most AI/Cloud Engineer interviews actually probe for: what does it take to run that as a real, internet-facing service — with infrastructure as code, no long-lived credentials, and a repeatable deploy — instead of a notebook demo.

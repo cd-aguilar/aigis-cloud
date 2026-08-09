@@ -5,7 +5,7 @@ stack: ["Ollama", "ChromaDB", "LangChain", "Python"]
 role: "AI Engineer"
 repo: "https://github.com/cd-aguilar/local-rag-second-brain"
 featured: true
-order: 2
+order: 3
 ---
 
 **Problem.** Technical notes, lab writeups, and study materials pile up in an Obsidian vault faster than they can be searched by hand. The goal was to ask questions against that knowledge base directly instead of manually digging through hundreds of markdown files — without sending any of it, including security lab notes, to a third-party API.
