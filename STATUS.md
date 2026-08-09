@@ -1,6 +1,6 @@
 # aigis-cloud — Estado del proyecto
 
-_Última actualización: 1 ago 2026 (tarde)_
+_Última actualización: 9 ago 2026_
 
 Este documento resume el estado real de infraestructura, seguridad y repo para que cualquier sesión (Cowork, Claude Code, o vos) arranque con contexto completo sin tener que re-derivarlo. Subilo al knowledge del proyecto "Aigis-Cloud" en claude.ai para que quede disponible automáticamente.
 
@@ -34,6 +34,21 @@ Ambos se construyen desde el mismo repo/rama `main`, por eso muestran el mismo c
 - PR #4 (fix `node:fs` en `resume.astro`) — **mergeado**. `src/pages/resume.astro` ya no importa `node:fs` directo; usa `src/generated/resume-status.ts`, generado por `scripts/check-resume.mjs` en el hook `prebuild` (proceso Node aparte, nunca pasa por el bundler de Vite/Cloudflare).
 - Ramas remotas obsoletas: borradas (`redesign/visual-refresh`, `redesign/ops-console-style`, `fix/cloudflare-fs-bundle`, `cloudflare/workers-autoconfig`).
 - Documentación al día: `PROJECT.md` (arquitectura dual-host), `ADR-0002`, `SECURITY.md`, `TODO.md`.
+- **Pendiente de commit/push (9 ago 2026, sigue sin resolver):** este `STATUS.md`,
+  `TODO.md` y `public/resume.pdf` v3 (regenerado con reportlab, 4KB vs. 52KB del v2 — es
+  el tamaño esperado, no está corrupto: se verificó extrayendo el texto del PDF). Segundo
+  intento de Cowork, mismo bloqueo que el 2 ago: `.git/index.lock` quedó huérfano en el
+  mount y Cowork no tiene permiso para borrarlo (`Operation not permitted` al hacer
+  `unlink`/`rm`), así que ningún comando `git` corre en la carpeta conectada. Arreglo manual
+  (en una terminal con acceso real al filesystem, no vía Cowork):
+  1. Borrar `C:\Users\dario\vaults\portfolio\aigis-cloud\.git\index.lock`
+  2. `git add STATUS.md TODO.md public/resume.pdf && git commit -m "docs: update project status, LinkedIn/CV alignment" && git push`
+  - **No incluir en ese commit:** los ~224 archivos bajo `.claude/skills/impeccable/` y
+    `.github/skills/impeccable/` que aparecen "modified" — es ruido de normalización de
+    line endings del mount de Cowork (mismo número de líneas insertadas/borradas), no
+    cambios reales; conviene `git checkout -- .claude/skills .github/skills` para
+    descartarlos antes de commitear. Tampoco `testfile.txt` (untracked, contenido "test",
+    parece un archivo de prueba suelto — borrar si no tiene uso).
 
 ### Riesgo aceptado y documentado (`SECURITY.md`)
 
@@ -80,6 +95,33 @@ Ambos se construyen desde el mismo repo/rama `main`, por eso muestran el mismo c
   por su cuenta** (revocar en cada dashboard de proveedor + actualizar en Infisical). Lección:
   usar `infisical secrets get <NOMBRE> --plain` o `infisical run -- <cmd>` para no volcar todo
   el vault a la terminal.
+
+## LinkedIn + CV — alineación de marca personal (2 ago 2026)
+
+- **Perfil de LinkedIn actualizado** (`linkedin.com/in/cesar-dario-aguilar-ai`):
+  - "About": reescrito para describir forma de trabajar/valores en primera persona, sin
+    mencionar stack técnico ni años de experiencia (ese espacio queda para la parte humana;
+    el stack ya está en el headline y en Top skills).
+  - Top skills: agregado **FastAPI** (Machine Learning, n8n, Python, FastAPI — 4/5).
+  - Servicios: agregado **Custom Software Development** (junto a Web Design existente),
+    publicado. Se probó agregar "AI Engineer" como servicio y **no existe** como categoría
+    en la taxonomía fija de LinkedIn Services — no es un buscador libre, son ~16 categorías
+    predefinidas (Finance, Operations, IT, Software Development, etc.), ninguna cubre
+    títulos de rol de IA. Custom Software Development es lo más cercano disponible.
+  - Experiencia "Radiation Safety Officer" (antes "Radiation Protection Supervisor" en el
+    CV, desalineado): fecha de fin corregida de "Present" a **enero 2023** para no
+    superponerse con "Artificial Intelligence Engineer" (feb 2023–presente). Se sacó la
+    línea "Concurrent with the AI Engineer role above." de la descripción, que había
+    quedado vieja tras el cambio de fechas.
+  - **Límite verificado de LinkedIn:** no existe una visibilidad "solo reclutadores" para
+    Top Skills (sí existe para "Open to work", que Dario ya tiene activo). Se revisó el
+    menú de opciones de Skills (Reorder / Endorsement settings) para confirmarlo.
+- **CV (`public/resume.pdf`) alineado con LinkedIn**, v3: corregido título de rol
+  ("Radiation Safety Officer") y nombre de organización ("Nuclear Medicine and Radioterapy
+  Center") para que coincidan exactamente con el perfil. Fechas y stack ya coincidían.
+  Archivo regenerado con reportlab manteniendo el diseño original (mismo layout, tipografía
+  y color navy). El "About me" del CV mantiene años de experiencia y menciones técnicas a
+  propósito — es lo esperado en un currículum, a diferencia del About de LinkedIn.
 
 ## Próximos pasos sugeridos (no urgentes)
 

@@ -1,6 +1,10 @@
 # TODO
 
 ## Pendiente
+- [ ] Commitear y pushear a GitHub: normalización CRLF→LF, `STATUS.md` y
+      `public/resume.pdf` v3 — Cowork no pudo hacerlo desde la carpeta conectada (falla al
+      liberar `.git/index.lock`, sin credenciales para push). Correr a mano:
+      `git add -u && git commit -m "..." && git push`.
 - [ ] Migración mayor: Astro 4 → 7, para poder actualizar `@astrojs/cloudflare` de 11.2.0 a
       14.1.4 y resolver las 11 vulnerabilidades (7 high) que trae el adapter de Cloudflare
       actual (detalle completo en SECURITY.md). Es un salto de tres versiones mayores —
@@ -25,6 +29,14 @@
 - [ ]
 
 ## Finalizado
+- [x] Reordenados "Featured projects" (home + `/portfolio`) por peso para un reclutador AI
+      Engineer: `agent-orchestrator-soc` (order 1) → `rag-api-cloud` (order 2) →
+      `local-rag-second-brain` (order 3). Case study de `agent-orchestrator-soc` estaba
+      desactualizada (decía que el eval y el gate de aprobación humana eran "próximos
+      pasos" cuando ya estaban implementados) — reescrito summary/tags/Result y agregada
+      línea de Architecture decisions sobre el gate (`interrupt()` + `MemorySaver`); sumado
+      link a demo en vivo (`soc-api.aigis-cloud.com/docs`, campo `demo` del content
+      collection). `rag-api-cloud` no necesitó reescritura, solo bajó de orden.
 - [x] Formulario de contacto real (`/contact` + `src/pages/api/contact.ts`), guarda los
       envíos en InsForge (Postgres). Única página SSR del sitio (ver ADR-0003). **Live en
       producción desde 2026-08-01**: tabla creada, `INSFORGE_SERVICE_KEY` cargado en
@@ -41,6 +53,13 @@
       el contenido se renderizaba sin estilo.
 - [x] CV real subido a `public/resume.pdf` (v2, 2026-07-24) — la página `/resume` ya
       detecta el archivo en build y muestra el botón de descarga real
+- [x] CV alineado con LinkedIn (v3, 2026-08-02): corregido título de rol a "Radiation
+      Safety Officer" y organización a "Nuclear Medicine and Radioterapy Center" para que
+      coincida exactamente con el perfil actualizado
+- [x] Perfil de LinkedIn actualizado (2026-08-02): About reescrito (sin stack/años), Top
+      skills +FastAPI, servicio "Custom Software Development" agregado y publicado, fecha
+      de fin de "Radiation Safety Officer" corregida a ene 2023 (ya no se superpone con el
+      rol actual)
 - [x] Email de contacto unificado a `cda.admin@aigis-cloud.com` en `/contact` (coincide
       con el CV; README.md/SECURITY.md siguen con `cdario.a@gmail.com`, sin tocar por
       ahora — avisar si también hay que unificarlos)
