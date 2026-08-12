@@ -1,10 +1,6 @@
 # TODO
 
 ## Pendiente
-- [ ] Commitear y pushear a GitHub: normalización CRLF→LF, `STATUS.md` y
-      `public/resume.pdf` v3 — Cowork no pudo hacerlo desde la carpeta conectada (falla al
-      liberar `.git/index.lock`, sin credenciales para push). Correr a mano:
-      `git add -u && git commit -m "..." && git push`.
 - [ ] Migración mayor: Astro 4 → 7, para poder actualizar `@astrojs/cloudflare` de 11.2.0 a
       14.1.4 y resolver las 11 vulnerabilidades (7 high) que trae el adapter de Cloudflare
       actual (detalle completo en SECURITY.md). Es un salto de tres versiones mayores —
@@ -29,6 +25,12 @@
 - [ ]
 
 ## Finalizado
+- [x] Retiradas del sitio las páginas "AI Lab" y "Blue Team Lab" (`/ai-lab`, `/blue-team-lab`)
+      — eran contenido genérico/placeholder sin writeups reales, y no encajaban con el
+      reposicionamiento a "AI & Cloud Security Engineer". Se borraron ambas páginas, sus
+      links en `Nav.astro` y `Footer.astro` (columna "Labs" del footer, que solo tenía
+      "Services" como link real tras el retiro, se renombró a "More"), y se actualizó el
+      "Alcance" en `PROJECT.md`.
 - [x] Reordenados "Featured projects" (home + `/portfolio`) por peso para un reclutador AI
       Engineer: `agent-orchestrator-soc` (order 1) → `rag-api-cloud` (order 2) →
       `local-rag-second-brain` (order 3). Case study de `agent-orchestrator-soc` estaba

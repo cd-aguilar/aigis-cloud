@@ -12,7 +12,8 @@ de IA/HTB, certificaciones, CV y contacto. Integrado con GitHub (`cd-aguilar`) y
 
 ## Alcance
 Home, Portafolio (proyectos desde `src/content/proyectos`), Blog técnico (`src/content/blog`),
-Laboratorio de IA, Laboratorio HTB, Servicios (futura consultora), Certificaciones, CV, Contacto.
+Servicios (futura consultora), Certificaciones, CV, Contacto. Las páginas "AI Lab" y "Blue
+Team Lab" (contenido genérico, sin writeups reales) se retiraron del sitio el 2026-08-12.
 
 ## Arquitectura
 Sitio Astro (`output: "hybrid"`) con contenido de proyectos y posts en Markdown mediante

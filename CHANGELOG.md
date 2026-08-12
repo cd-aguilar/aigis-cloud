@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+- **Retiradas las páginas "AI Lab" y "Blue Team Lab"** (`/ai-lab`, `/blue-team-lab`) del
+  sitio — contenido genérico sin writeups reales, ya no encajaba con el reposicionamiento
+  a "AI & Cloud Security Engineer". Borradas las páginas y sus links en nav y footer; la
+  columna "Labs" del footer (que quedaba solo con "Services") se renombró a "More".
 - **Formulario de contacto en producción.** `/contact` + `src/pages/api/contact.ts`, única
   página SSR del sitio — guarda los envíos en InsForge (Postgres), ver
   `docs/ADR/0003-insforge-contact-form.md`. `INSFORGE_SERVICE_KEY` cargado en Cloudflare
