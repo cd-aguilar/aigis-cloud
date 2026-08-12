@@ -7,12 +7,12 @@ const projects = (await getCollection('projects'))
   .slice(0, 3);
 
 const focus = [
+  { title: 'Cloud Security', detail: 'AWS, GCP, IAM, Terraform, security hardening.' },
+  { title: 'Detection Engineering', detail: 'Threat detection, threat hunting, DFIR, MITRE ATT&CK.' },
   { title: 'AI Engineering', detail: 'LLMs, RAG, agents, MCP, LangChain, Ollama.' },
-  { title: 'Blue Team', detail: 'Threat detection, threat hunting, DFIR, MITRE ATT&CK.' },
-  { title: 'Cloud', detail: 'AWS, GCP, Docker, Kubernetes, Terraform.' },
 ];
 ---
-<Base title="AI Engineer & Blue Team">
+<Base title="AI & Cloud Security Engineer">
   <section class="relative overflow-hidden pb-20 pt-20 md:pt-28">
     <div class="relative mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[1.2fr_1fr] md:items-center">
       <div class="reveal">
@@ -21,11 +21,12 @@ const focus = [
           Open to remote AI / Security roles
         </span>
         <h1 class="mt-5 max-w-2xl text-4xl font-extrabold leading-tight text-white md:text-6xl">
-          AI Engineer with a <span class="gradient-text">Blue Team</span> focus
+          AI & <span class="gradient-text">Cloud Security</span> Engineer
         </h1>
         <p class="mt-6 max-w-xl text-lg text-slate-300">
-          Chemical engineer transitioning into AI, Cloud, and cybersecurity. I build AI agents,
-          RAG pipelines, and threat detection labs — documented in the open.
+          Chemical engineer transitioning into Cloud Security, Detection Engineering, and Security
+          Automation — with an AI Engineering specialization. I build things to learn them
+          properly, documented in the open.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
           <a href="/portfolio" class="btn-primary">View portfolio</a>
@@ -43,7 +44,7 @@ const focus = [
           <p><span class="text-accent">$</span> whoami</p>
           <p class="text-slate-300">&gt; César Darío Aguilar</p>
           <p><span class="text-accent">$</span> role</p>
-          <p class="text-accent2">&gt; AI Engineer / Blue Team</p>
+          <p class="text-accent2">&gt; AI & Cloud Security Engineer</p>
           <p><span class="text-accent">$</span> stack</p>
           <p class="text-slate-400">&gt; RAG · LangChain · Elastic · MITRE ATT&amp;CK</p>
           <p><span class="text-accent">$</span> status</p>
