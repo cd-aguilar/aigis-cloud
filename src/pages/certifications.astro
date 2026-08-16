@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 const certs = [
-  { name: 'Hack The Box CDSA', status: 'In progress', area: 'Blue Team' },
+  { name: 'Hack The Box CDSA', status: 'Certified', area: 'Blue Team', date: 'Aug 2026' },
   { name: 'Google Cloud (AI / Cloud)', status: 'Planned', area: 'Cloud / AI' },
   { name: 'AWS (AI / ML / Cloud)', status: 'Planned', area: 'Cloud / AI' },
 ];
@@ -16,10 +16,11 @@ const certs = [
         <div class="flex items-center justify-between px-6 py-4">
           <div>
             <p class="font-medium text-white">{c.name}</p>
-            <p class="mono text-xs text-slate-500">{c.area}</p>
+            <p class="mono text-xs text-slate-500">{c.area}{c.date && ` · ${c.date}`}</p>
           </div>
-          <span class:list={['badge', { '!border-white/15 !bg-white/5 !text-slate-400': c.status !== 'In progress' }]}>
+          <span class:list={['badge', { '!border-white/15 !bg-white/5 !text-slate-400': c.status === 'Planned' }]}>
             {c.status === 'In progress' && <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>}
+            {c.status === 'Certified' && <span class="text-accent">✓</span>}
             {c.status}
           </span>
         </div>
