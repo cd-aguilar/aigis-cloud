@@ -7,26 +7,27 @@ const projects = (await getCollection('projects'))
   .slice(0, 3);
 
 const focus = [
-  { title: 'Cloud Security', detail: 'AWS, GCP, IAM, Terraform, security hardening.' },
-  { title: 'Detection Engineering', detail: 'Threat detection, threat hunting, DFIR, MITRE ATT&CK.' },
-  { title: 'AI Engineering', detail: 'LLMs, RAG, agents, MCP, LangChain, Ollama.' },
+  { title: 'AI Engineering', detail: 'LLM agents, RAG, evaluation, and production deployment. FastAPI, LangChain/LangGraph, Bedrock, pgvector.' },
+  { title: 'Security & Verification', detail: 'The control layer that decides whether an agent\'s work is actually correct: policy engines, deterministic quality gates, threat modeling.' },
+  { title: 'Cloud Infrastructure', detail: 'AWS, GCP, Terraform, Docker, CI/CD — the operational backbone every AI system needs in production.' },
 ];
 ---
-<Base title="AI & Cloud Security Engineer">
+<Base title="AI Engineer">
   <section class="relative overflow-hidden pb-20 pt-20 md:pt-28">
     <div class="relative mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-[1.2fr_1fr] md:items-center">
       <div class="reveal">
         <span class="badge">
           <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
-          Open to remote AI / Security roles
+          Open to remote AI Engineering roles
         </span>
         <h1 class="mt-5 max-w-2xl text-4xl font-extrabold leading-tight text-white md:text-6xl">
-          AI & <span class="gradient-text">Cloud Security</span> Engineer
+          <span class="gradient-text">AI Engineer</span> for secure, evidence-driven systems
         </h1>
         <p class="mt-6 max-w-xl text-lg text-slate-300">
-          Chemical engineer transitioning into Cloud Security, Detection Engineering, and Security
-          Automation — with an AI Engineering specialization. I build things to learn them
-          properly, documented in the open.
+          I build and ship AI agents and applications that are observable, policy-controlled, and
+          provably correct — not just prompted and hoped for. Before this: 11+ years operating
+          safety-critical systems in regulated nuclear medicine. Security isn't a specialty I bolt
+          on afterward; it's how I was trained to build things that can't fail quietly.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
           <a href="/portfolio" class="btn-primary">View portfolio</a>
@@ -44,11 +45,11 @@ const focus = [
           <p><span class="text-accent">$</span> whoami</p>
           <p class="text-slate-300">&gt; César Darío Aguilar</p>
           <p><span class="text-accent">$</span> role</p>
-          <p class="text-accent2">&gt; AI & Cloud Security Engineer</p>
+          <p class="text-accent2">&gt; AI Engineer</p>
           <p><span class="text-accent">$</span> stack</p>
-          <p class="text-slate-400">&gt; RAG · LangChain · Elastic · MITRE ATT&amp;CK</p>
+          <p class="text-slate-400">&gt; RAG · LangChain · Bedrock · Policy Engines</p>
           <p><span class="text-accent">$</span> status</p>
-          <p class="text-accent">&gt; available for remote work_</p>
+          <p class="text-accent">&gt; available for remote AI Engineering roles</p>
         </div>
       </div>
     </div>
