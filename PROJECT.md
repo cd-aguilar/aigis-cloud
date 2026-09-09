@@ -50,6 +50,13 @@ Ver `docs/architecture/` para diagramas si se agregan a futuro.
   no lee Infisical directamente: cada secret (ej. `INSFORGE_SERVICE_KEY`) se replica a mano
   como Cloudflare Secret (Workers & Pages → Settings → Variables and secrets) y en
   `.dev.vars` local (gitignoreado) para desarrollo — ver TODO.md para el paso a paso vigente.
+- **Blog automatizado vía GitOps, en Fase 2 de un AI Content Engine más amplio** (proyecto
+  `aigis-content-engine`, 05-Automatizacion-n8n/). Backend del pipeline: **InsForge**
+  (no Supabase — se extiende el que ya está en producción para el contacto). Cuando se
+  implemente: `Content Asset aprobado → Markdown/MDX → Git branch → PR → CI → merge → Astro
+  build`, nunca push directo a `main`. Sitio sigue 100% estático, sin SSR nuevo. **Fuera del
+  MVP del proyecto** (que es solo LinkedIn) — ver
+  `docs/ADR/0004-blog-automation-insforge-gitops.md`.
 - Ver `docs/ADR/` para decisiones mayores futuras.
 
 ## Restricciones

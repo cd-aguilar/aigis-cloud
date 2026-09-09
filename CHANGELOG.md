@@ -1,6 +1,13 @@
 # Changelog
 
 ## [Unreleased]
+- **Decisión de arquitectura: proyecto `aigis-content-engine` reencuadrado como AI
+  Content Engine.** MVP acotado a un solo publisher (LinkedIn) con aprobación humana
+  obligatoria; el blog pasa a Fase 2, vía GitOps (`Content Asset → Markdown → Git branch → PR
+  → CI → merge → Astro build`), sin agregar SSR al sitio. Backend del pipeline: **InsForge**
+  (se corrige de Supabase, decisión previa del mismo día, a InsForge tras consolidar la
+  arquitectura completa). Ver `docs/ADR/0004-blog-automation-insforge-gitops.md`. Nada de
+  esto implementado todavía — el MVP se prototipa en una rama aparte, no en `main`.
 - **Retiradas las páginas "AI Lab" y "Blue Team Lab"** (`/ai-lab`, `/blue-team-lab`) del
   sitio — contenido genérico sin writeups reales, ya no encajaba con el reposicionamiento
   a "AI & Cloud Security Engineer". Borradas las páginas y sus links en nav y footer; la
