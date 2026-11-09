@@ -33,3 +33,5 @@ src/generated/
 .roo
 .trae
 .windsurf
+
+graphify-out/
