@@ -1,6 +1,9 @@
 # Changelog
 
 ## [Unreleased]
+- **aigis-control-plane: página del proyecto actualizada al cierre del P0 (2026-11-09).** Summary y cuerpo
+  nuevos: tools de perfil fijo, Docker por defecto, decisiones desde datos que el agente no puede escribir, S01-S08,
+  historia del P0 y benchmark post-fix 24/24 PASS ($0.040 cost-to-pass). Reemplaza la cifra vieja de "221 tests".
 - **Decisión de arquitectura: proyecto `aigis-content-engine` reencuadrado como AI
   Content Engine.** MVP acotado a un solo publisher (LinkedIn) con aprobación humana
   obligatoria; el blog pasa a Fase 2, vía GitOps (`Content Asset → Markdown → Git branch → PR
