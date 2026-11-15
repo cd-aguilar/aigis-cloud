@@ -3,6 +3,7 @@
 ## Pendiente
 - [ ] Post-merge de ADR-0005: cargar `INSFORGE_BASE_URL` / `INSFORGE_SERVICE_KEY` en Vercel,
       fijar Node 22 en el proyecto, desconectar Cloudflare Workers Builds y borrar el Worker.
+- [ ] Revisar visualmente el preview de Tailwind 4 (ADR-0006) y mergear si no hay regresiones.
 - [ ] Rate limit en Vercel Firewall para `/api/contact` y clave de InsForge solo-INSERT.
 - [ ] Pasar la CSP de `Report-Only` a enforce (ver SECURITY.md).
 - [ ] Si se repone la demo de agent-orchestrator-soc, hostearla fuera de la notebook (no

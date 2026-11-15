@@ -1,80 +1,111 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-html {
-  scroll-behavior: smooth;
+@theme {
+  --color-ink: #0b1120;
+  --color-accent: #22d3ee;
+  --color-accent2: #a78bfa;
+
+  --background-image-accent-gradient: linear-gradient(90deg, #22d3ee, #a78bfa);
 }
-body {
-  @apply bg-ink text-slate-200;
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
-.mono,
-code {
+
+@utility btn-primary {
+  @apply inline-flex items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-ink transition hover:bg-cyan-300 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+}
+
+@utility btn-secondary {
+  @apply inline-flex items-center justify-center rounded-md border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-accent/50 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
+}
+
+@utility card {
+  @apply rounded-lg border border-white/10 bg-white/2 p-6 transition hover:border-accent/40 hover:bg-white/4;
+}
+
+@utility card-featured {
+  @apply border-accent/40 bg-accent/4;
+}
+
+@utility badge {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs text-accent;
   font-family: 'JetBrains Mono', monospace;
 }
 
-@layer components {
-  .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-ink transition hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
-  }
-  .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-accent/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
-  }
-  .card {
-    @apply rounded-lg border border-white/10 bg-white/[0.02] p-6 transition hover:border-accent/40 hover:bg-white/[0.04];
-  }
-  .card-featured {
-    @apply border-accent/40 bg-accent/[0.04];
-  }
-  .badge {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs text-accent;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .kicker {
-    @apply text-xs uppercase tracking-widest text-accent;
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .gradient-text {
-    @apply bg-accent-gradient bg-clip-text text-transparent;
-  }
-  .markdown-body {
-    @apply max-w-[70ch] text-slate-300;
-  }
-  .markdown-body p {
+@utility kicker {
+  @apply text-xs uppercase tracking-widest text-accent;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@utility gradient-text {
+  @apply bg-accent-gradient bg-clip-text text-transparent;
+}
+
+@utility markdown-body {
+  @apply max-w-[70ch] text-slate-300;
+  & p {
     @apply mb-5 leading-relaxed;
   }
-  .markdown-body strong {
+  & strong {
     @apply font-semibold text-white;
   }
-  .markdown-body em {
+  & em {
     @apply italic;
   }
-  .markdown-body a {
+  & a {
     @apply text-accent underline decoration-accent/30 underline-offset-2 hover:decoration-accent;
   }
-  .markdown-body ul {
+  & ul {
     @apply mb-5 list-disc space-y-2.5 pl-5 marker:text-accent;
   }
-  .markdown-body ol {
+  & ol {
     @apply mb-5 list-decimal space-y-2.5 pl-5 marker:text-accent;
   }
-  .markdown-body h2 {
+  & h2 {
     @apply mb-4 mt-10 text-xl font-bold text-white first:mt-0;
   }
-  .markdown-body h3 {
+  & h3 {
     @apply mb-3 mt-8 text-lg font-semibold text-white first:mt-0;
   }
-  .markdown-body code {
-    @apply rounded bg-white/[0.06] px-1.5 py-0.5 text-[0.85em] text-slate-200;
+  & code {
+    @apply rounded-sm bg-white/6 px-1.5 py-0.5 text-[0.85em] text-slate-200;
   }
-  .markdown-body pre {
-    @apply mb-5 overflow-x-auto rounded-lg border border-white/10 bg-white/[0.02] p-4;
+  & pre {
+    @apply mb-5 overflow-x-auto rounded-lg border border-white/10 bg-white/2 p-4;
   }
-  .markdown-body pre code {
+  & pre code {
     @apply bg-transparent p-0;
   }
-  .markdown-body blockquote {
+  & blockquote {
     @apply mb-5 border-l-2 border-white/15 pl-4 text-slate-400;
+  }
+}
+
+@layer utilities {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink text-slate-200;
+  }
+  .mono,
+  code {
+    font-family: 'JetBrains Mono', monospace;
   }
 }
 

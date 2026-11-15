@@ -11,17 +11,17 @@ import Base from '../layouts/Base.astro';
       <div>
         <label for="name" class="mono text-xs uppercase tracking-widest text-slate-500">Name</label>
         <input id="name" name="name" type="text" required maxlength="200"
-          class="mt-1 w-full rounded-md border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-slate-600 focus:border-accent/50 focus:outline-none" />
+          class="mt-1 w-full rounded-md border border-white/10 bg-white/3 px-3 py-2 text-sm text-white placeholder:text-slate-600 focus:border-accent/50 focus:outline-hidden" />
       </div>
       <div>
         <label for="email" class="mono text-xs uppercase tracking-widest text-slate-500">Email</label>
         <input id="email" name="email" type="email" required maxlength="200"
-          class="mt-1 w-full rounded-md border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-slate-600 focus:border-accent/50 focus:outline-none" />
+          class="mt-1 w-full rounded-md border border-white/10 bg-white/3 px-3 py-2 text-sm text-white placeholder:text-slate-600 focus:border-accent/50 focus:outline-hidden" />
       </div>
       <div>
         <label for="message" class="mono text-xs uppercase tracking-widest text-slate-500">Message</label>
         <textarea id="message" name="message" rows="5" required maxlength="5000"
-          class="mt-1 w-full rounded-md border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-white placeholder:text-slate-600 focus:border-accent/50 focus:outline-none"></textarea>
+          class="mt-1 w-full rounded-md border border-white/10 bg-white/3 px-3 py-2 text-sm text-white placeholder:text-slate-600 focus:border-accent/50 focus:outline-hidden"></textarea>
       </div>
       <!-- Honeypot anti-spam: oculto para humanos, los bots suelen rellenarlo igual -->
       <div class="hidden" aria-hidden="true">
@@ -33,7 +33,7 @@ import Base from '../layouts/Base.astro';
       <p id="contact-status" class="mono text-xs text-slate-500" role="status"></p>
     </form>
 
-    <div class="reveal mt-8 divide-y divide-white/10 rounded-lg border border-white/10 bg-white/[0.02]">
+    <div class="reveal mt-8 divide-y divide-white/10 rounded-lg border border-white/10 bg-white/2">
       <div class="flex items-baseline justify-between gap-6 px-6 py-4">
         <p class="mono text-xs uppercase tracking-widest text-slate-500">Email</p>
         <a href="mailto:cda.admin@aigis-cloud.com" class="text-accent hover:underline">cda.admin@aigis-cloud.com</a>
