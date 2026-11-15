@@ -48,7 +48,14 @@ const {
       end-call-text="End conversation"
       variant="compact"
     ></elevenlabs-convai>
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <!-- Versión fijada + SRI: al actualizar, recalcular el hash (ver SECURITY.md). -->
+    <script
+      src="https://unpkg.com/@elevenlabs/convai-widget-embed@0.26.0/dist/index.js"
+      integrity="sha384-SZWFXwOYRx3DtS4HbaWJ4a0LmzpJAaFe88e91ttsjTo+pCR5In7PSFDWHIz4gszm"
+      crossorigin="anonymous"
+      async
+      type="text/javascript"
+    ></script>
     <script>
       const observer = new IntersectionObserver(
         (entries) => {

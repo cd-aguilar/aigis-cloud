@@ -1,5 +1,8 @@
 # aigis-cloud — Estado del proyecto
 
+> **Nota 2026-11-15:** las secciones sobre Cloudflare Workers / hosting dual de este documento quedaron
+> desactualizadas. Hosting único en Vercel: ver `docs/ADR/0005-single-hosting-vercel.md`.
+
 _Última actualización: 9 ago 2026_
 
 Este documento resume el estado real de infraestructura, seguridad y repo para que cualquier sesión (Cowork, Claude Code, o vos) arranque con contexto completo sin tener que re-derivarlo. Subilo al knowledge del proyecto "Aigis-Cloud" en claude.ai para que quede disponible automáticamente.

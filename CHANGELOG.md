@@ -1,6 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+- **Hosting único en Vercel + migración a Astro 7 (2026-11-15, ADR-0005).** Reemplaza el adapter de
+  Cloudflare por `@astrojs/vercel`: `/api/contact` vuelve a funcionar como Vercel Function (en producción
+  devolvía 404). `npm audit` pasa de 19 vulnerabilidades a 0. Headers de seguridad en `vercel.json`
+  (CSP en Report-Only), widget de ElevenLabs con versión fija + SRI, `security.txt`, `robots.txt`,
+  validación de origen en el endpoint, CI con Actions fijadas por SHA + `npm audit`, y Dependabot.
 - **aigis-control-plane: página del proyecto actualizada al cierre del P0 (2026-11-09).** Summary y cuerpo
   nuevos: tools de perfil fijo, Docker por defecto, decisiones desde datos que el agente no puede escribir, S01-S08,
   historia del P0 y benchmark post-fix 24/24 PASS ($0.040 cost-to-pass). Reemplaza la cifra vieja de "221 tests".

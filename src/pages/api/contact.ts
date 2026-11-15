@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 
 // Única página no prerenderizada del sitio (ver docs/ADR/0003-insforge-contact-form.md).
-// Corre como función SSR en el Worker de Cloudflare (adapter @astrojs/cloudflare).
+// Corre como Vercel Function (adapter @astrojs/vercel). Ver docs/ADR/0005-single-hosting-vercel.md.
 export const prerender = false;
 
 interface ContactPayload {
@@ -17,8 +17,28 @@ function isValidEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function isAllowedOrigin(origin: string, requestHost: string): boolean {
+  try {
+    const host = new URL(origin).host;
+    // Mismo host que la request (cubre producción, previews de Vercel y localhost).
+    return host === requestHost || host === 'aigis-cloud.com' || host === 'www.aigis-cloud.com';
+  } catch {
+    return false;
+  }
+}
+
 export const POST: APIRoute = async (context) => {
-  const { request, locals } = context;
+  const { request } = context;
+
+  // Solo aceptamos envíos hechos desde el propio sitio (corta el abuso trivial del endpoint
+  // desde otros orígenes; no reemplaza un rate limit, ver SECURITY.md).
+  const origin = request.headers.get('origin');
+  if (origin && !isAllowedOrigin(origin, new URL(request.url).host)) {
+    return new Response(JSON.stringify({ error: 'Origin not allowed' }), { status: 403 });
+  }
+  if (!(request.headers.get('content-type') ?? '').includes('application/json')) {
+    return new Response(JSON.stringify({ error: 'Content-Type must be application/json' }), { status: 415 });
+  }
 
   let body: ContactPayload;
   try {
@@ -46,11 +66,10 @@ export const POST: APIRoute = async (context) => {
     return new Response(JSON.stringify({ error: 'Email inválido' }), { status: 400 });
   }
 
-  // En producción (Cloudflare Worker) las env vars/secrets llegan vía locals.runtime.env.
-  // En `astro dev` local no existe ese runtime, así que caemos a import.meta.env (.env local).
-  const runtimeEnv = (locals as { runtime?: { env?: Record<string, string> } }).runtime?.env;
-  const INSFORGE_BASE_URL = runtimeEnv?.INSFORGE_BASE_URL ?? import.meta.env.INSFORGE_BASE_URL;
-  const INSFORGE_SERVICE_KEY = runtimeEnv?.INSFORGE_SERVICE_KEY ?? import.meta.env.INSFORGE_SERVICE_KEY;
+  // Variables de entorno: en Vercel se cargan en Project Settings > Environment Variables
+  // (llegan por process.env en runtime). En `astro dev` local salen del .env (import.meta.env).
+  const INSFORGE_BASE_URL = process.env.INSFORGE_BASE_URL ?? import.meta.env.INSFORGE_BASE_URL;
+  const INSFORGE_SERVICE_KEY = process.env.INSFORGE_SERVICE_KEY ?? import.meta.env.INSFORGE_SERVICE_KEY;
 
   if (!INSFORGE_BASE_URL || !INSFORGE_SERVICE_KEY) {
     console.error('Faltan INSFORGE_BASE_URL / INSFORGE_SERVICE_KEY en el entorno');

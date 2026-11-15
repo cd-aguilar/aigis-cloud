@@ -1,11 +1,9 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import vercel from '@astrojs/vercel';
 
-import cloudflare from "@astrojs/cloudflare";
-
+// Hosting único: Vercel (ver docs/ADR/0005-single-hosting-vercel.md).
+// El sitio es estático; la única ruta on-demand es /api/contact (prerender = false).
 export default defineConfig({
-  site: 'https://aigis-cloud.com',
-  integrations: [tailwind()],
-  output: "hybrid",
-  adapter: cloudflare()
+  site: 'https://www.aigis-cloud.com',
+  adapter: vercel(),
 });

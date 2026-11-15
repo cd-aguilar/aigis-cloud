@@ -26,7 +26,7 @@ Built with Astro, Tailwind CSS and TypeScript. Deployed on Vercel.
 npm install
 npm run dev      # http://localhost:4321
 npm run build    # generates dist/
-npm run preview  # serves dist/ locally
+npm run preview  # serves the build locally
 ```
 
 ## Structure

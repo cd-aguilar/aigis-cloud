@@ -35,3 +35,6 @@ src/generated/
 .windsurf
 
 graphify-out/
+
+# Vercel build output
+.vercel
