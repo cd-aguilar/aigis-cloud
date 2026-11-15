@@ -1,0 +1,10 @@
+# Copiar a .env y completar si se agregan integraciones (ej. formulario de contacto,
+# analytics). No hay variables requeridas para build/dev por ahora.
+
+# --- Formulario de contacto (InsForge) — ver docs/ADR/0003-insforge-contact-form.md ---
+# Hostname del proyecto InsForge (no es secreto, visible en el dashboard > Instalar > Conexión directa).
+INSFORGE_BASE_URL=https://i8w4sqcw.us-east.insforge.app
+# Service Key de InsForge (SECRETO — dashboard > Instalar > Conexión directa > Claves de API).
+# Solo se usa server-side (Vercel Function, nunca en el browser). NUNCA commitear el valor real.
+# En producción se carga en Vercel: Project Settings > Environment Variables.
+INSFORGE_SERVICE_KEY=

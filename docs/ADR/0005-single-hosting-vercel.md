@@ -1,7 +1,7 @@
 # ADR-0005: Hosting único en Vercel (reemplaza ADR-0002)
 
 ## Estado
-Propuesta (2026-11-15). Reemplaza a ADR-0002.
+Reemplazada por ADR-0007 (2026-11-15). Su diagnóstico sigue siendo válido; cambia el destino del hosting.
 
 ## Contexto
 ADR-0002 dejó el dominio raíz en Cloudflare Workers y `www` en Vercel. Al 2026-11-15 la

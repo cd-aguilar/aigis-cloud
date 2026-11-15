@@ -1,6 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+- **Hosting a Cloudflare Workers (2026-11-15, ADR-0007).** Reemplaza a ADR-0005 del mismo día: el
+  plan Hobby de Vercel no admite uso comercial y el sitio promociona servicios de consultoría.
+  Sobre Astro 7 el adapter actual (`@astrojs/cloudflare@14.4.8`) da 0 vulnerabilidades, así que el
+  motivo técnico de ADR-0005 ya no aplica. Cabeceras de `vercel.json` a `public/_headers`, y
+  rate limiting propio del Worker en `/api/contact`.
 - **Tailwind CSS 3 → 4 (2026-11-15, ADR-0006).** Migración con el codemod oficial: config en CSS
   (`@theme`), componentes como `@utility`, renombres de utilidades en las plantillas, e integración
   por `@tailwindcss/vite` en lugar de PostCSS (con PostCSS el build de Astro falla al resolver
