@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "aigis-cloud",
+  "compatibility_date": "2026-11-15",
+  "observability": {
+    "enabled": true
+  },
+  "compatibility_flags": [
+    "global_fetch_strictly_public",
+    "nodejs_compat"
+  ],
+  // INSFORGE_BASE_URL no es secreto (es solo el hostname del proyecto), por eso vive acá
+  // y se commitea. INSFORGE_SERVICE_KEY es secreto: se carga con
+  // `wrangler secret put INSFORGE_SERVICE_KEY` o desde el dashboard de Cloudflare
+  // (Workers & Pages > aigis-cloud > Settings > Variables), NUNCA en este archivo.
+  "vars": {
+    "INSFORGE_BASE_URL": "https://i8w4sqcw.us-east.insforge.app"
+  },
+  // Rate limiting de /api/contact: 5 envíos por minuto y por IP. Es la Rate Limiting API de
+  // Workers, no cuesta nada y corre antes de tocar InsForge. El endpoint funciona igual si el
+  // binding no está (desarrollo local).
+  "unsafe": {
+    "bindings": [
+      {
+        "name": "CONTACT_RATE_LIMITER",
+        "type": "ratelimit",
+        "namespace_id": "1001",
+        "simple": { "limit": 5, "period": 60 }
+      }
+    ]
+  }
+}

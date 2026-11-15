@@ -38,3 +38,6 @@ graphify-out/
 
 # Vercel build output
 .vercel
+.wrangler
+.dev.vars*
+!.dev.vars.example
