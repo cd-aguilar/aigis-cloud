@@ -1,5 +1,8 @@
 # PROJECT.md — Contexto para IA
 
+> **Nota 2026-11-15:** las secciones sobre Cloudflare Workers / hosting dual de este documento quedaron
+> desactualizadas. Hosting único en Vercel: ver `docs/ADR/0005-single-hosting-vercel.md`.
+
 > Leer este archivo primero, completo, antes de proponer cambios o explorar el repo.
 > Si existe `AI/GlobalContext.md` en el workspace raíz (perfil, objetivos de carrera,
 > stack general, convenciones), leerlo también — no lo repitas acá, solo referencialo.

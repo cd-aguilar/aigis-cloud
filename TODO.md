@@ -1,10 +1,12 @@
 # TODO
 
 ## Pendiente
-- [ ] Migración mayor: Astro 4 → 7, para poder actualizar `@astrojs/cloudflare` de 11.2.0 a
-      14.1.4 y resolver las 11 vulnerabilidades (7 high) que trae el adapter de Cloudflare
-      actual (detalle completo en SECURITY.md). Es un salto de tres versiones mayores —
-      planear aparte, no es un `npm audit fix` simple.
+- [ ] Post-merge de ADR-0005: cargar `INSFORGE_BASE_URL` / `INSFORGE_SERVICE_KEY` en Vercel,
+      fijar Node 22 en el proyecto, desconectar Cloudflare Workers Builds y borrar el Worker.
+- [ ] Rate limit en Vercel Firewall para `/api/contact` y clave de InsForge solo-INSERT.
+- [ ] Pasar la CSP de `Report-Only` a enforce (ver SECURITY.md).
+- [ ] El link de demo `soc-api.aigis-cloud.com/docs` (case study de agent-orchestrator-soc)
+      no resuelve: decidir si se restaura la demo o se quita el link.
 - [ ] Case study de `blue-team-detection-lab` — el repo en GitHub está vacío (sin README,
       sin código), así que no se pudo escribir un case study grounded como el de los otros
       tres. Falta cargar contenido real al repo, o pasarme el material como con
@@ -14,8 +16,7 @@
 - [ ] Reemplazar bio/copy genérico de las páginas con contenido definitivo
 - [ ] Autorizar conector de GitHub (OAuth) para sincronizar proyectos automáticamente
 - [ ] Digest diario de `contact_submissions` (fase 2 de ADR-0003) — falta: elegir servicio
-      de envío de email (candidato: Resend), y un Cloudflare Cron Trigger o función
-      programada que junte los envíos con `digested_at is null`, mande el digest, y marque
+      de envío de email (candidato: Resend), y un Vercel Cron que junte los envíos con `digested_at is null`, mande el digest, y marque
       `digested_at`. Sin esto, los envíos quedan guardados pero nadie los lee todavía.
 - [ ] Agregar foto/logo propio (reemplazar favicon genérico en `public/`)
 - [ ] Primeros writeups de HTB en `src/content/blog`

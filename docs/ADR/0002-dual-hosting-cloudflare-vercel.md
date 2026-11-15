@@ -1,7 +1,7 @@
 # ADR-0002: Dominio raíz en Cloudflare Workers, `www` en Vercel
 
 ## Estado
-Aceptada (2026-07-25)
+Reemplazada por ADR-0005 (2026-11-15). Aceptada originalmente el 2026-07-25.
 
 ## Contexto
 El dominio `aigis-cloud.com` se configuró con seguridad reforzada a nivel DNS/edge en

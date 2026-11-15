@@ -77,7 +77,7 @@ const focus = [
     <div class="grid gap-6 md:grid-cols-3">
       {projects.map((p, i) => (
         <a
-          href={`/portfolio/${p.slug}`}
+          href={`/portfolio/${p.id}`}
           class:list={['group card reveal', { 'card-featured': i === 0 }]}
         >
           <h3 class="font-semibold text-white group-hover:text-accent">{p.data.title}</h3>
