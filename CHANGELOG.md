@@ -1,6 +1,10 @@
 # Changelog
 
 ## [Unreleased]
+- **Tailwind CSS 3 → 4 (2026-11-15, ADR-0006).** Migración con el codemod oficial: config en CSS
+  (`@theme`), componentes como `@utility`, renombres de utilidades en las plantillas, e integración
+  por `@tailwindcss/vite` en lugar de PostCSS (con PostCSS el build de Astro falla al resolver
+  `@import 'tailwindcss'`). Reemplaza al PR #6 de Dependabot, que no compilaba.
 - **Hosting único en Vercel + migración a Astro 7 (2026-11-15, ADR-0005).** Reemplaza el adapter de
   Cloudflare por `@astrojs/vercel`: `/api/contact` vuelve a funcionar como Vercel Function (en producción
   devolvía 404). `npm audit` pasa de 19 vulnerabilidades a 0. Headers de seguridad en `vercel.json`
