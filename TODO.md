@@ -5,8 +5,8 @@
       fijar Node 22 en el proyecto, desconectar Cloudflare Workers Builds y borrar el Worker.
 - [ ] Rate limit en Vercel Firewall para `/api/contact` y clave de InsForge solo-INSERT.
 - [ ] Pasar la CSP de `Report-Only` a enforce (ver SECURITY.md).
-- [ ] El link de demo `soc-api.aigis-cloud.com/docs` (case study de agent-orchestrator-soc)
-      no resuelve: decidir si se restaura la demo o se quita el link.
+- [ ] Si se repone la demo de agent-orchestrator-soc, hostearla fuera de la notebook (no
+      volver al Cloudflare Tunnel contra localhost) y recién ahí reponer el campo `demo`.
 - [ ] Case study de `blue-team-detection-lab` — el repo en GitHub está vacío (sin README,
       sin código), así que no se pudo escribir un case study grounded como el de los otros
       tres. Falta cargar contenido real al repo, o pasarme el material como con
